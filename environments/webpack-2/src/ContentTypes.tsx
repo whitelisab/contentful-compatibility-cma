@@ -13,7 +13,8 @@ const ContentTypes: React.FC = () => {
           accessToken: process.env.CMA_ACCESS_TOKEN ?? '',
         });
 
-        const space = await client.getSpace(process.env.SPACE_ID ?? '');
+        const spaces = await client.getSpaces()
+        const space = await client.getSpace(spaces.items[0].sys.id);
         const environment = await space.getEnvironment('master');
         const response = await environment.getContentTypes();
         

@@ -31,9 +31,6 @@ module.exports = {
               ['@babel/preset-react', { runtime: 'automatic' }],
               '@babel/preset-typescript',
             ],
-            plugins: [
-              '@babel/plugin-transform-modules-commonjs', 
-            ],
           },
         },
       },
@@ -47,8 +44,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name]-[contenthash].css',
+    }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
     }),
