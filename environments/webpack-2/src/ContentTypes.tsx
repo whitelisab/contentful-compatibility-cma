@@ -28,31 +28,40 @@ const ContentTypes: React.FC = () => {
   }, []);
 
   if (error) {
-    return <div style={{ color: 'red' }}>Error: {error}</div>;
+    return (
+      <div id="loading-content-types" style={{ color: "red" }}>
+        🚫 Error: {error}
+      </div>
+    );
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: "20px" }}>
       <h2>Content Types</h2>
-      {contentTypes.length === 0 ? (
-        <p>Loading content types...</p>
-      ) : (
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          {contentTypes.map((contentType) => (
-            <li 
-              key={contentType.sys.id}
-              style={{
-                padding: '10px',
-                margin: '5px 0',
-                backgroundColor: '#f5f5f5',
-                borderRadius: '4px'
-              }}
-            >
-              {contentType.displayField}: {contentType.name}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div>
+        {contentTypes.length === 0 ? (
+          <p id="loading-content-types">Loading content types...</p>
+        ) : (
+          <>
+            <p id="loading-content-types">✅ Success!</p>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              {contentTypes.map((contentType) => (
+                <li
+                  key={contentType.sys.id}
+                  style={{
+                    padding: "10px",
+                    margin: "5px 0",
+                    backgroundColor: "#f5f5f5",
+                    borderRadius: "4px",
+                  }}
+                >
+                  {contentType.displayField}: {contentType.name}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   );
 };
