@@ -1,5 +1,5 @@
 {
-  "name": "webpack-2",
+  "name": "webpack-cjs",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
