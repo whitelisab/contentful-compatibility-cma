@@ -14,6 +14,7 @@
     "postinstall": "cp -f ../../.env ."
   },
   "dependencies": {
+    "contentful-management": "12.0.0-beta.6",
     "@expo/metro-runtime": "~4.0.0",
     "expo": "~52.0.0",
     "expo-status-bar": "~2.0.0",
