@@ -19,10 +19,10 @@
     "./environments/*"
   ],
   "dependencies": {
-    "contentful-management": "12.0.0-beta.6"
+    "contentful-management": "12.0.0-beta.7"
   },
   "resolutions": {
-    "contentful-management": "12.0.0-beta.6",
+    "contentful-management": "12.0.0-beta.7",
     "contentful-sdk-core": "10.0.0-beta.1",
     "p-throttle": "^4.1.1",
     "fast-copy": "^2.1.7"
