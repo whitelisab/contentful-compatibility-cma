@@ -9417,10 +9417,10 @@ content-type@~1.0.4, content-type@~1.0.5:
   resolved "https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz"
   integrity sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==
 
-contentful-management@12.0.0-beta.7:
-  version "12.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-12.0.0-beta.7.tgz#249d7fe250d33355e848a9f073a7480eaabd72d3"
-  integrity sha512-xnEucECbNVuUvkUil9LfR4jIg9pcBM+BmKye6M3hSJXS+LMVeOLT8sVoWEjGmx/Ntjy5Zk3epNm41TOnxQUBqg==
+contentful-management@12.0.0-beta.8:
+  version "12.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-12.0.0-beta.8.tgz#44b8114c5b31c6bc691538b4e6e4972717a61bf3"
+  integrity sha512-DV3WZuBO5XjVbUYxyazxtT21B1hbwyO8CneN3/MgsYVveAEFdQNepBbowlxZiujEZOCH3s44L6lYstUE6wcc1Q==
   dependencies:
     "@contentful/rich-text-types" "^16.6.1"
     axios "^1.8.4"

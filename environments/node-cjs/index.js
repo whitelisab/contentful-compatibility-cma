@@ -1,4 +1,4 @@
-const contentful = require("contentful-management");
+const contentful = require("contentful-management/dist/contentful-management.node.cjs");
 
 const client = contentful.createClient({
   // Never store your Contentful credentials in your projects config file.
