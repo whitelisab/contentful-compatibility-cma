@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 import { useEffect, useState } from "react";
 
-import { createClient } from "contentful-management/dist/contentful-management.react-native";
+import { createClient } from "contentful-management"
 
 export default function Contentful() {
   const [result, setResult] = useState("Loading...");

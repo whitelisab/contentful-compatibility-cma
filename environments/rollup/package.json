@@ -17,6 +17,6 @@
     "serve": "^14.2.3"
   },
   "dependencies": {
-    "contentful-management": "12.0.0-beta.8"
+    "contentful-management": "0.0.0-exports-cleanup.8"
   }
 }
