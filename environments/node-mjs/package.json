@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "contentful-management": "0.0.0-exports-cleanup.8"
+    "contentful-management": "12.0.0-new-beta.11"
   }
 }

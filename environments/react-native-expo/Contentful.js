@@ -15,7 +15,7 @@ export default function Contentful() {
           accessToken: process.env.EXPO_PUBLIC_CMA_ACCESS_TOKEN,
         });
 
-        await client.getCurrentUser();
+        await client.user.getCurrent();
         setResult(`✅ Success!`);
       } catch (err) {
         setResult(`🚫 Error: ${err.message}`);

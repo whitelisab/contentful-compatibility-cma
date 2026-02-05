@@ -7,7 +7,7 @@ const client = contentful.createClient({
 });
 
 client
-  .getCurrentUser()
+  .user.getCurrent()
   .then((result) =>
     console.log(`✅ Success ts-mjs!`)
   )

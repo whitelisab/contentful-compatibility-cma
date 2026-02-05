@@ -7,7 +7,7 @@ const client = contentful.createClient({
 });
 
 client
-  .getCurrentUser()
+  .user.getCurrent()
   .then((result) => {
     console.log(`✅ Success mjs - was able to conntect to Contentful Managment api with user ${result.sys.id}!`);
   })

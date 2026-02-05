@@ -8,7 +8,7 @@ try {
     accessToken: import.meta.env.VITE_CMA_ACCESS_TOKEN,
   });
 
-  await client.getCurrentUser();
+  await client.user.getCurrent();
   result = "✅ Success!";
 } catch (err) {
   console.error(`Error fetching entries: ${err.message}`);

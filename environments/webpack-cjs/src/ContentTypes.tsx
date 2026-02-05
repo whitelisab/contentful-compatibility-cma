@@ -13,11 +13,13 @@ const ContentTypes: React.FC = () => {
           accessToken: process.env.CMA_ACCESS_TOKEN ?? '',
         });
 
-        const spaces = await client.getSpaces()
-        const space = await client.getSpace(spaces.items[0].sys.id);
-        const environment = await space.getEnvironment('master');
-        const response = await environment.getContentTypes();
-        
+        const spaces = await client.space.getMany({});
+        const spaceId = spaces.items[0].sys.id;
+        const response = await client.contentType.getMany({
+          spaceId,
+          environmentId: 'master',
+        });
+
         setContentTypes(response.items);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');

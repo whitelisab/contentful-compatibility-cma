@@ -16,7 +16,7 @@ export default function EntriesClient() {
           accessToken: process.env.NEXT_PUBLIC_CMA_ACCESS_TOKEN || "",
         });
 
-        await client.getCurrentUser();
+        await client.user.getCurrent();
         setResult(`✅ Success!`);
       } catch (err) {
         setResult(`🚫 Error: ${(err as Error).message}`);

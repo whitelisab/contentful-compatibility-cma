@@ -12,7 +12,7 @@ export default async function EntriesServer() {
     });
 
     // Fetching data directly in the server component function.
-    await client.getCurrentUser();
+    await client.user.getCurrent();
 
     // Directly return the rendered component with the results.
     return <div id="server">✅ Success!</div>;

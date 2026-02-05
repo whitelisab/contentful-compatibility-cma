@@ -15,7 +15,7 @@ try {
   }
 
   client
-    .getCurrentUser()
+    .user.getCurrent()
     .then(() => (loading.innerText = `✅ Success!`))
     .catch((err) => {
       loading.innerText = `🚫 Error: ${err.message}`;

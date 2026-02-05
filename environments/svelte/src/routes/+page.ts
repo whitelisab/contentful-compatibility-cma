@@ -7,7 +7,7 @@ import * as contentful from "contentful-management";
     });
 
     // Fetching data directly in the server component function.
-    await client.getCurrentUser();
+    await client.user.getCurrent();
 
     // Directly return the rendered component with the results.
     return {result: "✅ Success!"}

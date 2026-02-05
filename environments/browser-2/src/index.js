@@ -9,7 +9,7 @@ function onload() {
     });
 
     client
-      .getCurrentUser()
+      .user.getCurrent()
       .then((result) => (loading.innerText = `✅ Success!`))
       .catch((err) => {
         loading.innerText = `🚫 Error: ${err.message}`;
