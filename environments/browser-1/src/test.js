@@ -1,13 +1,21 @@
-import { By } from "selenium-webdriver";
-import assert from "assert"
-import { setupSeleniumClient } from "../../../scripts/setup-selenium.cjs"
+const { By } = require("selenium-webdriver");
+const assert = require("assert");
+const { setupSeleniumClient } = require("../../../scripts/setup-selenium.cjs");
 
 (async () => {
   const driver = await setupSeleniumClient();
 
-  await driver.get("http://localhost:3000/");
+  await driver.get("http://localhost:1234/");
 
   await driver.sleep(2000);
+
+  // Check HTML title
+  const title = await driver.getTitle();
+  assert.strictEqual(
+    title,
+    "contentful-management.js - Browser Test",
+    "Title does not match expected."
+  );
 
   // Check for success
   const loadingResult = await driver.findElement(By.id("loading-entries"));

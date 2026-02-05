@@ -5,17 +5,30 @@ import type { ContentTypeProps } from 'contentful-management';
 const ContentTypes: React.FC = () => {
   const [contentTypes, setContentTypes] = useState<ContentTypeProps[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [apiStatus, setApiStatus] = useState<string>('Testing APIs...');
 
   useEffect(() => {
-    const fetchContentTypes = async () => {
+    const runTests = async () => {
       try {
-        const client = createClient({
-          accessToken: process.env.CMA_ACCESS_TOKEN ?? '',
-        });
+        const accessToken = process.env.CMA_ACCESS_TOKEN ?? '';
 
-        const spaces = await client.space.getMany({});
+        // Test 1: Plain Client API (new default)
+        const plainClient = createClient({ accessToken });
+
+        // Test 2: Legacy Client API
+        const legacyClient = createClient({ accessToken }, { type: 'legacy' });
+
+        // Test both getCurrentUser APIs
+        await Promise.all([
+          plainClient.user.getCurrent(),
+          legacyClient.getCurrentUser()
+        ]);
+        setApiStatus('Both APIs working!');
+
+        // Also test more complex operations with Plain Client
+        const spaces = await plainClient.space.getMany({});
         const spaceId = spaces.items[0].sys.id;
-        const response = await client.contentType.getMany({
+        const response = await plainClient.contentType.getMany({
           spaceId,
           environmentId: 'master',
         });
@@ -26,7 +39,7 @@ const ContentTypes: React.FC = () => {
       }
     };
 
-    fetchContentTypes();
+    runTests();
   }, []);
 
   if (error) {
@@ -42,10 +55,10 @@ const ContentTypes: React.FC = () => {
       <h2>Content Types</h2>
       <div>
         {contentTypes.length === 0 ? (
-          <p id="loading-content-types">Loading content types...</p>
+          <p id="loading-content-types">Loading content types... ({apiStatus})</p>
         ) : (
           <>
-            <p id="loading-content-types">✅ Success!</p>
+            <p id="loading-content-types">✅ Success! (Plain + Legacy APIs)</p>
             <ul style={{ listStyle: "none", padding: 0 }}>
               {contentTypes.map((contentType) => (
                 <li
@@ -68,4 +81,4 @@ const ContentTypes: React.FC = () => {
   );
 };
 
-export default ContentTypes; 
+export default ContentTypes;

@@ -19,13 +19,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const client = createClient({
-        accessToken: environment.CMA_ACCESS_TOKEN,
-      });
+      const accessToken = environment.CMA_ACCESS_TOKEN;
 
-      client.user.getCurrent()
+      // Test 1: Plain Client API (new default)
+      const plainClient = createClient({ accessToken });
+
+      // Test 2: Legacy Client API
+      const legacyClient = createClient({ accessToken }, { type: 'legacy' });
+
+      // Test both APIs
+      Promise.all([
+        plainClient.user.getCurrent(),
+        legacyClient.getCurrentUser()
+      ])
         .then(() => {
-          this.result = '✅ Success!';
+          this.result = '✅ Success! (Plain + Legacy APIs)';
         })
         .catch((err: Error) => {
           this.result = `🚫 Error: ${err.message}`;

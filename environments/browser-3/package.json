@@ -7,7 +7,8 @@
     "start": "parcel ./src/index.html --no-cache",
     "clean": "rm -rf dist .parcel-cache",
     "test": "npm run clean && start-server-and-test start http://localhost:1234 test:execute",
-    "test:execute": "browserstack-node-sdk jest src/local.test.js"
+    "test:execute": "node src/test.js",
+    "test:browserstack": "browserstack-node-sdk jest src/local.test.js"
   },
   "keywords": [],
   "author": "",
