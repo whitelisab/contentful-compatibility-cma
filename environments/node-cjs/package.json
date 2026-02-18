@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "contentful-management": "12.0.0-new-beta.11"
+    "contentful-management": "12.0.0-new-beta.13"
   }
 }
